@@ -29,4 +29,8 @@ public class ViewService {
         }
     }
 
+    public Long getViews(Long fileId) {
+        return viewRepository.findByFileId(fileId).stream().count();
+    }
+
 }

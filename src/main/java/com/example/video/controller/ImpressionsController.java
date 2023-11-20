@@ -3,15 +3,18 @@ package com.example.video.controller;
 import com.example.video.entity.Impressions;
 import com.example.video.service.ImpressionsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.*;
 
+
+@RestController
+@RequestMapping("/impression")
 public class ImpressionsController {
 
     @Autowired
     ImpressionsService impressionsService;
 
-    @RequestMapping(value = "/impressions/{fileId}", method = RequestMethod.GET)
+    @RequestMapping(value = "/get/{fileId}", method = RequestMethod.GET)
     public Integer getImpression(@PathVariable("fileId") Long id) {
         return impressionsService.getImpressions(id);
     }
